@@ -108,4 +108,3 @@ For any questions or suggestions, please contact me at [ravellewourougou@gmail.c
 ---
 
 Thank you for using MCQ Grader!
-```
