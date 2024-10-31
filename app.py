@@ -87,7 +87,7 @@ elif option == "Upload Image":
 
         # Détection des cercles remplis
         student_circles = detect_filled_circles(img)
-        st.write(f"Nombre de cercles détectés : {len(student_circles) - 1}")
+        st.write(f"Detected Circles : {len(student_circles)}")
 
 # Téléchargement de l'image de la feuille de réponses originale
 correct_file = st.file_uploader("Upload the correct answers sheet...", type="jpg")
@@ -98,11 +98,11 @@ if correct_file is not None:
 
     # Détection des cercles remplis sur la feuille de réponses originale
     correct_circles = detect_filled_circles(correct_img)
-    st.write(f"Nombre de cercles détectés sur la feuille de réponses originale : {len(correct_circles) - 1}")
+    st.write(f"Detected Circles on the Correction Bubble sheet : {len(correct_circles)}")
 
     # Comparaison des réponses
     if 'student_circles' in locals():
         correct_count, total_questions = compare_responses(student_circles, correct_circles, captured_image if option == "Camera" else img)
         score = (correct_count / total_questions) * 100
-        st.write(f"Score final de l'étudiant : {correct_count - 1}/{total_questions - 1} ({score:.2f}%)")
-        st.image(captured_image if option == "Camera" else img, channels="BGR", caption="Résultats")
+        st.write(f"Student Score: {correct_count}/{total_questions} ({score:.2f}%)")
+        st.image(captured_image if option == "Camera" else img, channels="BGR", caption="Results")
